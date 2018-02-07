@@ -1,0 +1,44 @@
+﻿@model Joker.IdentityServer4.Client.WebUI.Models.HomeModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>HomeModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TokenResponse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TokenResponse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ApiErrorStatusCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApiErrorStatusCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscoveryError)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiscoveryError)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTokenError)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RequestTokenError)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ApiResponseContent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApiResponseContent)
+        </dd>
+    </dl>
+</div>

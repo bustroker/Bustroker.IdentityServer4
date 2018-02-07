@@ -1,20 +1,25 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
+using IdentityServer4.AccessTokenValidation;
 
 namespace Joker.IdentityServer4.Resources.WebApi
 {
-    internal class OpenIdConnectConfig
+    public class OpenIdConnectConfig
     {
+        private const string AuthenticationScheme = "Bearer";
+        private const string AuthenticationAuthority = "http://localhost:5000";
+        private const string ApiId = "api1";
+
         public static void RegisterIdentityServerInDI(IServiceCollection services)
         {
-            services.AddAuthentication("Bearer")
+            services.AddAuthentication(AuthenticationScheme)
                .AddIdentityServerAuthentication(options =>
                {
-                   options.Authority = "http://localhost:5000";
+                   options.Authority = AuthenticationAuthority;
                    options.RequireHttpsMetadata = false;
 
-                   options.ApiName = "api1";
+                   options.ApiName = ApiId;
                });
         }
 

@@ -8,11 +8,21 @@ namespace Joker.IdentityServer4.IdentityProvider.WebApi
 {
     public class ConfigResourcesAndClients
     {
+
+        private const string AuthenticationScheme = "Bearer";
+        private const string AuthenticationAuthority = "http://localhost:5000";
+        private const string ApiId = "api1";
+        private const string ApiPrettyName = "API 1";
+
+        private const string ClientId = "client";
+        private const string ClientSecret = "secret";
+
+
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "API 1")
+                new ApiResource(ApiId, ApiPrettyName)
             };
         }
 
@@ -22,7 +32,7 @@ namespace Joker.IdentityServer4.IdentityProvider.WebApi
             {
                 new Client
                 {
-                    ClientId = "client",
+                    ClientId = ClientId,
 
                     // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -30,11 +40,11 @@ namespace Joker.IdentityServer4.IdentityProvider.WebApi
                     // secret for authentication
                     ClientSecrets =
                     {
-                        new Secret("secret".Sha256())
+                        new Secret(ClientSecret.Sha256())
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = { "api1" }
+                    AllowedScopes = { ApiId }
                 }
             };
         }
