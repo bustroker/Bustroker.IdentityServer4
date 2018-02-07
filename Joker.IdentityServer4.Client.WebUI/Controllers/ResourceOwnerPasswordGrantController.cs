@@ -8,7 +8,7 @@ using Joker.IdentityServer4.Client.WebUI.Models;
 
 namespace Joker.IdentityServer4.Client.WebUI.Controllers
 {
-    public class UserPasswordController : AuthenticationControllerBase
+    public class ResourceOwnerPasswordGrantController : AuthenticationControllerBase
     {
         private const string ApiId = "api1";
 

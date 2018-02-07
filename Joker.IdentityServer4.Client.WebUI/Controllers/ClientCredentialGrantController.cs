@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Joker.IdentityServer4.Client.WebUI.Controllers
 {
-    public class ClientCredentialsController : AuthenticationControllerBase
+    public class ClientCredentialGrantController : AuthenticationControllerBase
     {
         private const string ApiId = "api1";
 
