@@ -14,7 +14,8 @@ namespace Joker.IdentityServer4.IdentityProvider.WebApi
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryApiResources(ConfigResourcesAndClients.GetApiResources())
-                .AddInMemoryClients(ConfigResourcesAndClients.GetClients());
+                .AddInMemoryClients(ConfigResourcesAndClients.GetClients())
+                .AddTestUsers(ConfigResourcesAndClients.GetUsers());
         }
 
         public static void AddIdentityServerToHttpPipeline(IApplicationBuilder app)

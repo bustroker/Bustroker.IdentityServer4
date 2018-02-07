@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Joker.IdentityServer4.Client.WebUI.Models
 {
-    public class HomeModel
+    public class Model
     {
         public string TokenResponse { get; set; }
         public string ApiErrorStatusCode { get; set; }

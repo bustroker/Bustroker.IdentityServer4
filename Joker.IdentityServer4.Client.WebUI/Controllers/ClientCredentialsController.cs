@@ -11,27 +11,18 @@ using Newtonsoft.Json.Linq;
 
 namespace Joker.IdentityServer4.Client.WebUI.Controllers
 {
-    public class ClientCredentialsController : Controller
+    public class ClientCredentialsController : AuthenticationControllerBase
     {
-        private const string AuthenticationAuthority = "http://localhost:5000";
         private const string ApiId = "api1";
 
-        private const string ClientId = "client";
-        private const string ClientSecret = "secret";
+        private const string JustClientId = "justClient";
+        private const string JustClientSecret = "justClient-secret";
 
         public async Task<IActionResult> Index()
         {
-            var result = new HomeModel();
-            // discover endpoints from metadata
-            var disco = await DiscoveryClient.GetAsync(AuthenticationAuthority);
-            if (disco.IsError)
-            {
-                result.DiscoveryError = disco.Error;
-                return View(result);
-            }
+            var result = new Model();
 
-            // request token
-            var tokenClient = new TokenClient(disco.TokenEndpoint, ClientId, ClientSecret);
+            var tokenClient = await GetTokenClientAsync(JustClientId, JustClientSecret);
             var tokenResponse = await tokenClient.RequestClientCredentialsAsync(ApiId);
 
             if (tokenResponse.IsError)
@@ -58,8 +49,6 @@ namespace Joker.IdentityServer4.Client.WebUI.Controllers
                 return View(result);
             }
         }
-
-
 
         public IActionResult Error()
         {

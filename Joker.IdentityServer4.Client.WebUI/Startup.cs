@@ -43,7 +43,7 @@ namespace Joker.IdentityServer4.Client.WebUI
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Client}/{action=Index}/{id?}");
+                    template: "{controller=ClientCredentials}/{action=Index}/{id?}");
             });
         }
     }
