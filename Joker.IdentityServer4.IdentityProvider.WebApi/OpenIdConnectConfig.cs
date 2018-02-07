@@ -9,7 +9,7 @@ namespace Joker.IdentityServer4.IdentityProvider.WebApi
 {
     public class OpenIdConnectConfig
     {
-        public static void ConfigureRegisterIdentityServerInDI(IServiceCollection services)
+        public static void RegisterIdentityServerInDI(IServiceCollection services)
         {
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()

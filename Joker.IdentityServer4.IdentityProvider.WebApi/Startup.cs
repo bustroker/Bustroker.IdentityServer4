@@ -13,7 +13,7 @@ namespace Joker.IdentityServer4.IdentityProvider.WebApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            OpenIdConnectConfig.ConfigureRegisterIdentityServerInDI(services);
+            OpenIdConnectConfig.RegisterIdentityServerInDI(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
